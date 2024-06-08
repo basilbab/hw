@@ -5,18 +5,21 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.stereotype.Component;
 
+import com.helloworld2.hw.dao.CustomerInterface;
 import com.helloworld2.hw.model.Customer;
 
 @Component
 public class CustomerService {
+    private CustomerInterface customerDAO;
     private List<Customer> customerList = new CopyOnWriteArrayList<>();
     private int customerIdCount = 1;
 
     public Customer addCustomer(Customer customer) {
-        customer.setCustomerId(customerIdCount);
-        customerList.add(customer);
-        customerIdCount++;
-        return customer;
+        // customer.setCustomerId(customerIdCount);
+        // customerList.add(customer);
+        // customerIdCount++;
+        // return customer;
+        return customerDAO.save(customer);
     }
 
     public List<Customer> getCustomers() {

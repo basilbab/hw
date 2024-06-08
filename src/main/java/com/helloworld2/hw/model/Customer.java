@@ -1,9 +1,23 @@
 package com.helloworld2.hw.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Customer {
+@Id
+@GeneratedValue(strategy = GenerationType.AUTO)
+@JsonProperty("id")
 public int customerId;
+@JsonProperty("firstName")
 public String customerFirstName;
+@JsonProperty("lastName")
 public String customerLastName;
+@JsonProperty("email")
 public String customerEmail;
 public int getCustomerId() {
     return customerId;
